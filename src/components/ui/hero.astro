@@ -4,7 +4,7 @@ import Button from "./button.astro";
 import Github from "../icons/github.astro";
 ---
 
-<section id="hero" class="py-8 md:py-12 sm:mt-30">
+<section id="hero" class="py-8 md:py-12 sm:mt-24">
   <Container className="flex justify-center items-center">
     <div class="flex flex-1 justify-between gap-4">
       <div class="flex flex-col">
@@ -16,8 +16,13 @@ import Github from "../icons/github.astro";
           software engineered to optimize your operations.
         </p>
         <div class="flex items-center gap-4 mt-4">
-          <Button > Contact Me </Button>
-          <a href="https://github.com/Jota-ato" target="_blank" rel="noopener noreferrer">
+          <Button> Contact Me </Button>
+          <a
+            href="https://github.com/Jota-ato"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary transition-colors duration-300"
+          >
             <Github />
           </a>
         </div>
