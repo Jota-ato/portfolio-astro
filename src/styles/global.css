@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --text: #e8ecf5;
+  --text: #fafbfd;
   --background: #070910;
-  --primary: #99acd4;
-  --muted: #9AA4B8;
-  --secondary: #3e3174;
-  --accent: #7a37e5;
+  --surface: #0f111a;
+  --surface-raised: #161925;
+  --primary: #a8c4f0;
+  --secondary: #c5b8e8;
+  --accent: #b388eb;
+  --muted: #5a6270;
+  --success: #88d4b0;
+  --warning: #f0d88a;
+  --danger: #f0a8a8;
 }
 
 @theme inline {
@@ -16,6 +21,11 @@
   --color-secondary: var(--secondary);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
   --font-sans: 'Geist Sans', sans-serif;
   --font-mono: 'Geist Mono', monospace;
   --font-serif: var(--font-serif);
@@ -37,12 +47,18 @@
     @apply disabled:cursor-not-allowed;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     @apply font-bold;
   }
 
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-sans;
   }
 
