@@ -30,7 +30,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground text-base font-mono;
+    @apply bg-background text-foreground text-base;
   }
 
   button {
