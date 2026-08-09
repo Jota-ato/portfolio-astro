@@ -2,6 +2,7 @@
 import Container from "../layout/container.astro";
 import Button from "./button.astro";
 import Github from "../icons/github.astro";
+import Mail from "../icons/mail.astro";
 ---
 
 <section id="hero" class="py-8 md:py-12 sm:mt-24">
@@ -10,20 +11,30 @@ import Github from "../icons/github.astro";
       <div class="flex flex-col">
         <h1 class="text-[60px] md:text-[80px]">Custom Software</h1>
         <h2 class="text-base text-accent">Julio Zavala - Full Stack Dev</h2>
-        <p class="max-w-xl mt-8">
+        <p class="mt-8">
           I build high-performance web systems, boost your productivity, and
           streamline your operations. Zero generic templates. Just tailored
           software engineered to optimize your operations.
         </p>
         <div class="flex items-center gap-4 mt-4">
-          <Button> Contact Me </Button>
+          <Button>See my work</Button>
           <a
             href="https://github.com/Jota-ato"
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-primary transition-colors duration-300"
+            aria-label="GitHub link"
           >
             <Github />
+          </a>
+          <a
+            href="mailto:juliozavala@julio-zavala.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary transition-colors duration-300"
+            aria-label="Mail link"
+          >
+            <Mail />
           </a>
         </div>
       </div>
