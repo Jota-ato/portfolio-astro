@@ -2,40 +2,42 @@
 import Container from "../layout/container.astro";
 import PerkItem from "./perk-item.astro";
 import Palette from "../icons/collor-palette.astro";
-import PersonStanding from "../icons/person-standing.astro";
+import Money from "../icons/money.astro";
 import Zap from "../icons/zap.astro";
 import Globe from "../icons/globe.astro";
+import Key from "../icons/key.astro";
+import Card from "../ui/card.astro";
 
 const perks = [
   {
     icon: Palette,
-    title: "UI/UX Design",
+    title: "Design That Converts",
     description:
-      "Clean, easy-to-use interfaces that enhance user experience and engagement, ensuring intuitive navigation and interaction.",
+      "Clean interfaces built to turn visitors into customers. Every pixel is intentional, not decorative.",
   },
   {
     icon: Globe,
-    title: "US & Canada Time Zone Aligned",
+    title: "Real-Time Collaboration",
     description:
-      "I work in sync with clients in the US and Canada, ensuring timely communication and collaboration across time zones.",
+      "I work in your time zone. Daily standups, instant feedback, and iteration cycles without waiting for the next business day.",
   },
   {
     icon: Zap,
-    title: "Agile Deployment (Weeks, Not Months)",
+    title: "Ship in Weeks, Not Quarters",
     description:
-      "Get your product to market faster with agile development practices, delivering high-quality results in weeks rather than months.",
+      "Lean process, zero bureaucracy. Your MVP goes live fast so you can validate with real users before your competition moves.",
   },
   {
-    icon: Globe,
-    title: "100% Ownership",
+    icon: Key,
+    title: "You Own 100% of the Product",
     description:
-      "Stop paying for software you don't own. I provide full ownership of the codebase, giving you complete control and flexibility over your product.",
+      "Zero vendor lock-in. The code deploys to your Vercel, Neon, or Supabase accounts. You control the hosting, the data, and the future.",
   },
   {
-    icon: PersonStanding,
-    title: "Accessibility",
+    icon: Money,
+    title: "Premium Quality, Smarter Investment",
     description:
-      "Inclusive design practices to ensure your product is usable by people of all abilities, enhancing reach and user satisfaction.",
+      "Senior-level delivery without the San Francisco agency price tag. Same technical standard, optimized for your budget.",
   },
 ];
 ---
@@ -47,7 +49,33 @@ const perks = [
     </div>
 
     <div class="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-9">
-      {perks.slice(3).map((perk) => <PerkItem className="first-of-type:md:col-span-2 first-of-type:md:row-span-1 first-of-type:row-span-2" {...perk} />)}
+      <Card className="row-span-2 md:row-span-1 md:col-span-2">
+        <div slot="content" class="flex flex-col sm:items-center sm:flex-row gap-4 size-full">
+          <div class="sm:max-w-xs">
+            <header class="font-bold">
+            <Key
+              class="size-10 p-1.5 rounded-md border border-primary stroke-primary mb-4"
+            />
+            You Own 100% of the Product
+          </header>
+          <main>
+            <p class="text-sm text-muted-foreground">
+              Zero vendor lock-in. The code deploys to your Vercel, Neon, or
+              Supabase accounts. You control the hosting, the data, and the
+              future.
+            </p>
+          </main>
+          </div>
+          <div class="flex-1">
+            <img
+                src="/public/img/ownership.jpg"
+                alt="Ownership"
+                class="rounded-md object-cover size-full"
+            />
+          </div>
+        </div>
+      </Card>
+      <PerkItem {...perks[4]} />
     </div>
   </Container>
 </section>
