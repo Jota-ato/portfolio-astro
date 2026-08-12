@@ -12,7 +12,7 @@ import { NAV_ELEMENTS } from "@/lib/constants";
 export function MobileMenu() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="sm:hidden">
+      <DropdownMenuTrigger className="sm:hidden" aria-label="Navigation menu">
         <Menu className="size-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
