@@ -1,0 +1,17 @@
+---
+import { NAV_ELEMENTS } from "@/lib/constants";
+---
+
+<nav class="hidden sm:block">
+  <ul
+    class="flex gap-4 [&>li>a]:hover:text-primary [&>li>a]:text-sm [&>li>a]:font-bold [&>li>a]:transition-colors [&>li>a]:duration-200"
+  >
+    {
+      NAV_ELEMENTS.map((element) => (
+        <li>
+          <a href={element.href}>{element.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
