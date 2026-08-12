@@ -1,0 +1,19 @@
+---
+import Card from "./card.astro";
+
+const { icon: Icon, title, description, className } = Astro.props;
+---
+
+<Card className={className}>
+  <header slot="header" class="font-bold">
+    <Icon
+      class="size-10 p-1.5 rounded-md border border-primary stroke-primary mb-4"
+    />
+    {title}
+  </header>
+  <main slot="content">
+    <p class="text-sm text-muted-foreground">
+      {description}
+    </p>
+  </main>
+</Card>

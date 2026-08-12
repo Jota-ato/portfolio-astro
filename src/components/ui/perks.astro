@@ -1,29 +1,53 @@
 ---
-import Card from "./card.astro"
-import Container from "../layout/container.astro"
+import Container from "../layout/container.astro";
+import PerkItem from "./perk-item.astro";
+import Palette from "../icons/collor-palette.astro";
+import PersonStanding from "../icons/person-standing.astro";
+import Zap from "../icons/zap.astro";
+import Globe from "../icons/globe.astro";
+
+const perks = [
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description:
+      "Clean, easy-to-use interfaces that enhance user experience and engagement, ensuring intuitive navigation and interaction.",
+  },
+  {
+    icon: Globe,
+    title: "US & Canada Time Zone Aligned",
+    description:
+      "I work in sync with clients in the US and Canada, ensuring timely communication and collaboration across time zones.",
+  },
+  {
+    icon: Zap,
+    title: "Agile Deployment (Weeks, Not Months)",
+    description:
+      "Get your product to market faster with agile development practices, delivering high-quality results in weeks rather than months.",
+  },
+  {
+    icon: Globe,
+    title: "100% Ownership",
+    description:
+      "Stop paying for software you don't own. I provide full ownership of the codebase, giving you complete control and flexibility over your product.",
+  },
+  {
+    icon: PersonStanding,
+    title: "Accessibility",
+    description:
+      "Inclusive design practices to ensure your product is usable by people of all abilities, enhancing reach and user satisfaction.",
+  },
+];
 ---
 
-<section id="perks" class="h-screen">
-    <Container>
-        <div class="flex flex-col md:flex-row gap-9">
-        <Card>
-            <header slot="header" class="text-lg font-bold">Responsive Design</header>
-            <main slot="content">
-                <p class="text-muted-foreground">My portfolio is designed to be fully responsive, ensuring a seamless experience across all devices, from desktops to mobile phones.</p>
-            </main>
-        </Card>
-        <Card>
-            <header slot="header" class="text-lg font-bold">Responsive Design</header>
-            <main slot="content">
-                <p class="text-muted-foreground">My portfolio is designed to be fully responsive, ensuring a seamless experience across all devices, from desktops to mobile phones.</p>
-            </main>
-        </Card>
-        <Card>
-            <header slot="header" class="text-lg font-bold">Responsive Design</header>
-            <main slot="content">
-                <p class="text-muted-foreground">My portfolio is designed to be fully responsive, ensuring a seamless experience across all devices, from desktops to mobile phones.</p>
-            </main>
-        </Card>
+<section id="perks" class="py-24">
+  <Container className="flex flex-col gap-12">
+    <div class="grid md:grid-cols-3 gap-9">
+      {perks.slice(0, 3).map((perk) => <PerkItem {...perk} />)}
     </div>
-    </Container>
+
+    <div class="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-9">
+      {perks.slice(3).map((perk) => <PerkItem className="first-of-type:md:col-span-2 first-of-type:md:row-span-1 first-of-type:row-span-2" {...perk} />)}
+    </div>
+  </Container>
 </section>
