@@ -1,12 +1,21 @@
 ---
+type Variants = "primary" | "secondary";
 interface Props {
-    className?: string;
+  className?: string;
+  variant?: Variants;
 }
 
-const { className } = Astro.props;
+const { className, variant = "primary" } = Astro.props;
 
+const classesMap: Record<Variants, string> = {
+  primary: "bg-primary text-background hover:bg-primary/80",
+  secondary:
+    "bg-background text-secondary border border-secondary hover:bg-secondary/80",
+};
 ---
 
-<button class={`bg-primary rounded-md px-3 py-1 text-background hover:bg-primary/80 transition-colors duration-200 ${className}`}>
-    <slot />
+<button
+  class={`${classesMap[variant]} rounded-md px-3 py-1 text-background hover:bg-primary/80 transition-colors duration-200 ${className}`}
+>
+  <slot />
 </button>
