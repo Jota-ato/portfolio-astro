@@ -1,0 +1,9 @@
+<article class="flex flex-col md:flex-row gap-8"  {...Astro.props}>
+  <div class="shrink-0 max-w-xl [&>img]:rounded-md [&>img]:aspect-video">
+    <slot name="image" />
+  </div>
+  <div class="flex-1">
+    <slot name="header" />
+    <slot name="body" />
+  </div>
+</article>

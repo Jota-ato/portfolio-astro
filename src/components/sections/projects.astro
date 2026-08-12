@@ -1,9 +1,30 @@
 ---
+import Section from "../layout/section.astro";
 import Container from "../layout/container.astro";
+import Project from "@/components/ui/project.astro";
 ---
 
-<section id="projects">
-    <Container>
-        <h2>Projects</h2>
-    </Container>
-</section>
+<Section id="projects">
+  <Container className="space-y-4">
+    <h2>Projects</h2>
+    <Project>
+      <img slot="image" src="/img/me.jpeg" alt="project-1" />
+
+      <header slot="header">
+        <h3>
+            Jose María's Art Gallery
+        </h3>
+      </header>
+      <main slot="body">
+        <div>
+            <span class="rounded-md px-2 py-1 border border-primary text-primary">
+                Next.js
+            </span>
+        </div>
+        <p class="text-sm text-muted">
+            A high-performance digital commerce platform built for high-resolution visual inventory. Optimized for lightning-fast asset loading, secure online transaction routing, and clean content management so non-technical owners can easily update stock.
+        </p>
+      </main>
+    </Project>
+  </Container>
+</Section>
