@@ -7,8 +7,12 @@ import Mail from "../icons/mail.astro";
 
 <section id="hero" class="py-8 md:py-12 sm:mt-24">
   <Container className="flex justify-center items-center">
-    <div class="flex flex-1 justify-between gap-4">
+    <div class="flex flex-col md:flex-row flex-1 ">
       <div class="flex flex-col">
+        <img
+          src="/img/me.jpeg"
+          class="rounded-full object-cover size-32 md:hidden mb-4"
+        />
         <h1 class="text-[60px] md:text-[80px]">Custom Software</h1>
         <h2 class="text-base text-accent">Julio Zavala - Full Stack Dev</h2>
         <p class="mt-8">
@@ -39,6 +43,12 @@ import Mail from "../icons/mail.astro";
             </a>
           </nav>
         </div>
+      </div>
+      <div class="flex justify-start">
+        <img
+          src="/img/me.jpeg"
+          class="rounded-full object-cover size-64 hidden md:block"
+        />
       </div>
     </div>
   </Container>
