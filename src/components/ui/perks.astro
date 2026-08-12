@@ -1,0 +1,29 @@
+---
+import Card from "./card.astro"
+import Container from "../layout/container.astro"
+---
+
+<section id="perks" class="h-screen">
+    <Container>
+        <div class="flex flex-col md:flex-row gap-9">
+        <Card>
+            <header slot="header" class="text-lg font-bold">Responsive Design</header>
+            <main slot="content">
+                <p class="text-muted-foreground">My portfolio is designed to be fully responsive, ensuring a seamless experience across all devices, from desktops to mobile phones.</p>
+            </main>
+        </Card>
+        <Card>
+            <header slot="header" class="text-lg font-bold">Responsive Design</header>
+            <main slot="content">
+                <p class="text-muted-foreground">My portfolio is designed to be fully responsive, ensuring a seamless experience across all devices, from desktops to mobile phones.</p>
+            </main>
+        </Card>
+        <Card>
+            <header slot="header" class="text-lg font-bold">Responsive Design</header>
+            <main slot="content">
+                <p class="text-muted-foreground">My portfolio is designed to be fully responsive, ensuring a seamless experience across all devices, from desktops to mobile phones.</p>
+            </main>
+        </Card>
+    </div>
+    </Container>
+</section>
