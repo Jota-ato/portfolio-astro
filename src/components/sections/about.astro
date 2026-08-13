@@ -1,0 +1,34 @@
+---
+import Section from "../layout/section.astro";
+import Container from "../layout/container.astro";
+import { Image } from "astro:assets";
+---
+
+<Section id="me" class="bg-primary">
+  <Container className="space-y-4 flex flex-col md:flex-row gap-8 items-center">
+    <div>
+      <h2 class="text-background text-3xl font-bold">About</h2>
+      <p class="text-background text-lg leading-relaxed font-semibold">
+        I am a full-stack software engineer dedicated to helping independent
+        businesses eliminate operational friction and stop losing clients to
+        outdated web systems.
+      </p>
+      <p class="text-background/90 text-base leading-relaxed">
+        Rather than forcing local companies into rigid templates or expensive
+        recurring monthly software subscriptions, I design and build custom,
+        100%-owned web applications, automated booking engines, and internal
+        management dashboards. Aligned with US and Canada time zones, I focus on
+        delivering clean, reliable software that saves your team hours of manual
+        labor every single week.
+      </p>
+    </div>
+    <div>
+        <Image 
+            width={400}
+            height={400}
+            src="/img/me.webp"
+            alt="Julio Zavala"
+        />
+    </div>
+  </Container>
+</Section>
