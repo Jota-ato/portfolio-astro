@@ -1,0 +1,83 @@
+---
+import Github from "../icons/github.astro";
+---
+
+<div class="flex flex-1 flex-col">
+  <img
+    src="/img/me.webp"
+    class="rounded-full object-cover size-32 md:hidden mb-4"
+    alt="Julio Zavala"
+  />
+  <h1 class="text-[48px] md:text-[60px]">
+    Custom Web Apps Engineered to Scale Your Business
+  </h1>
+  <h2 id="typewriter" class="text-base text-accent font-mono h-4"></h2>
+  <p class="mt-8">
+    I build high-performance web applications and internal tools that streamline
+    business operations. Zero generic templates—just tailored, scalable software
+    built to solve your specific problems.
+  </p>
+  <div class="flex flex-col md:flex-row items-left md:items-center gap-4 mt-4">
+    <nav class="flex flex-col items-start sm:flex-row gap-4 sm:items-center">
+      <a
+        class="bg-primary text-background hover:bg-primary/80 rounded-md px-3 py-1 transition-colors duration-200 cursor-pointer"
+        href="mailto:juliozavala@julio-zavala.me"
+        target="_blank"
+        rel="noopener noreferrer">Let's Talk About Your Project</a
+      >
+      <a
+        href="#projects"
+        class="bg-background text-secondary border border-secondary hover:bg-secondary/80 rounded-md px-3 py-1 transition-colors duration-200"
+      >
+        See my work
+      </a>
+      <a
+        href="https://github.com/Jota-ato"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-primary transition-colors duration-300"
+        aria-label="GitHub link"
+      >
+        <Github />
+      </a>
+    </nav>
+  </div>
+</div>
+
+<script>
+  const words = [
+    "Julio Zavala — Full Stack Developer",
+    "UI/UX Designer",
+    "Web developer",
+  ];
+  let i = 0;
+  let j = 0;
+  let currentWord = "";
+  let isDeleting = false;
+
+  function type() {
+    currentWord = words[i];
+    if (isDeleting) {
+      document.getElementById("typewriter")!.textContent =
+        currentWord.substring(0, j - 1);
+      j--;
+      if (j == 0) {
+        isDeleting = false;
+        i++;
+        if (i == words.length) {
+          i = 0;
+        }
+      }
+    } else {
+      document.getElementById("typewriter")!.textContent =
+        currentWord.substring(0, j + 1);
+      j++;
+      if (j == currentWord.length) {
+        isDeleting = true;
+      }
+    }
+    setTimeout(type, 100);
+  }
+
+  type();
+</script>

@@ -10,17 +10,29 @@ import Github from "@/components/icons/github.astro";
   <Container className="space-y-10">
     <h2>Projects</h2>
     <Project>
-      <img slot="image" src="/img/manita-de-gato.webp" alt="project-1" />
+      <img slot="image" src="/img/manita-de-gato.webp" alt="Manita de Gato" />
 
       <header slot="header">
         <h3>Manita de Gato</h3>
       </header>
       <main slot="body" class="flex flex-col gap-4">
-        <div>
-          <span class="rounded-md px-2 py-1 border border-primary text-primary text-xs">
+        <diva class="flex gap-2">
+          <span
+            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          >
             Next.js
           </span>
-        </div>
+          <span
+            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          >
+            Tailwind CSS
+          </span>
+          <span
+            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          >
+            Nenon
+          </span>
+        </diva>
         <p class="text-sm text-muted">
           A custom booking engine and dashboard that eliminates manual
           scheduling conflicts. It gives business owners complete control over
@@ -39,6 +51,59 @@ import Github from "@/components/icons/github.astro";
           <a
             class="flex gap-2 items-center border border-foreground text-foreground rounded-md px-2 py-1 text-sm cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-300"
             href="https://github.com/Jota-ato/manita-de-gato-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github class="size-4" />
+            Code
+          </a>
+        </nav>
+      </main>
+    </Project>
+    <Project>
+      <img
+        slot="image"
+        src="/img/galeria-chema.webp"
+        alt="Jose María's Gallery"
+      />
+
+      <header slot="header">
+        <h3>Jose María's Gallery</h3>
+      </header>
+      <main slot="body" class="flex flex-col gap-4">
+        <diva class="flex gap-2">
+          <span
+            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          >
+            Next.js
+          </span>
+          <span
+            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          >
+            Tailwind CSS
+          </span>
+          <span
+            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          >
+            Nenon
+          </span>
+        </diva>
+        <p class="text-sm text-muted">
+          A high-performance digital commerce platform built for high-resolution visual inventory. Optimized for lightning-fast asset loading, secure online transaction routing, and clean content management so non-technical owners can easily update stock.
+        </p>
+        <nav class="flex items-center gap-4">
+          <a
+            class="flex gap-2 items-center border border-secondary text-secondary rounded-md px-2 py-1 text-sm cursor-pointer hover:bg-secondary hover:text-background transition-colors duration-300"
+            href="https://galeria-chema-lopez-viveros.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExternalLink class="size-4" />
+            See live
+          </a>
+          <a
+            class="flex gap-2 items-center border border-foreground text-foreground rounded-md px-2 py-1 text-sm cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-300"
+            href="https://github.com/Jota-ato/galeria-chema-lopez-viveros"
             target="_blank"
             rel="noopener noreferrer"
           >
