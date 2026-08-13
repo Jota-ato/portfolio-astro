@@ -4,31 +4,48 @@ import Container from "../layout/container.astro";
 import { Image } from "astro:assets";
 ---
 
-<Section id="me" class="bg-primary">
-  <Container className="space-y-4 flex flex-col md:flex-row gap-8 items-center">
-    <div>
-      <h2 class="text-background text-3xl font-bold">About</h2>
-      <p class="text-background text-lg leading-relaxed font-semibold">
-        I am a full-stack software engineer dedicated to helping independent
-        businesses eliminate operational friction and stop losing clients to
-        outdated web systems.
+<Section id="me" class="bg-secondary">
+  <Container
+    className="space-y-4 flex flex-col md:flex-row gap-8 items-center font-mono"
+  >
+    <div class="space-y-4">
+      <h2 class="text-background text-3xl font-bold mb-6 font-mono">About</h2>
+
+      <p class="text-background leading-relaxed">
+        Hi, I'm <strong
+          class="bg-background/90 text-secondary px-1.5 py-0.5 rounded"
+          >Julio Zavala</strong
+        >. My passion for programming began years ago during high school when I
+        wrote my first lines of C++ and web code. What started as deep curiosity
+        quickly grew into years of dedicated engineering, mastering modern
+        full-stack development.
       </p>
-      <p class="text-background/90 text-base leading-relaxed">
-        Rather than forcing local companies into rigid templates or expensive
-        recurring monthly software subscriptions, I design and build custom,
-        100%-owned web applications, automated booking engines, and internal
-        management dashboards. Aligned with US and Canada time zones, I focus on
-        delivering clean, reliable software that saves your team hours of manual
-        labor every single week.
+
+      <p class="text-background/90 leading-relaxed">
+        With over 3 years of hands-on experience building web applications, I
+        specialize in creating <strong
+          class="bg-background/90 text-secondary px-1.5 py-0.5 rounded"
+          >fast booking engines, internal dashboards, and high-converting
+          layouts</strong
+        > using tools like Next.js, Astro, and modern databases.
+      </p>
+
+      <p class="text-background/90 leading-relaxed">
+        My mission is simple: to help independent businesses eliminate
+        operational friction, replace overpriced monthly software subscriptions,
+        and deliver seamless digital experiences to their clients.
       </p>
     </div>
-    <div>
-        <Image 
-            width={400}
-            height={400}
-            src="/img/me.webp"
-            alt="Julio Zavala"
+    <div class="flex justify-center">
+      <div
+        class="relative w-64 h-64 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-xl"
+      >
+        <img
+          src="/img/me.webp"
+          alt="Julio Zavala"
+          class="size-full object-cover"
         />
+      </div>
     </div>
   </Container>
 </Section>
