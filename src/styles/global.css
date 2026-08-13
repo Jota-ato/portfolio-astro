@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "tailwind-animations";
 :root {
   /* Texto y fondos */
   --text: #e8ecf5;
@@ -35,8 +35,8 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
 
-  --font-sans: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
 
   --text-xs: 14px;
   --text-sm: 16px;

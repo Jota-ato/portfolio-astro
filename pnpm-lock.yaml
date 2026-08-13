@@ -44,6 +44,9 @@ importers:
       react-dom:
         specifier: ^19.2.8
         version: 19.2.8(react@19.2.8)
+      tailwind-animations:
+        specifier: ^1.0.2
+        version: 1.0.2(tailwindcss@4.3.3)
       tailwind-merge:
         specifier: ^3.6.0
         version: 3.6.0
@@ -1667,6 +1670,11 @@ packages:
     resolution: {integrity: sha512-ekx94z1rRc5LDi6oSUaeRnYhd0UOJxdtQCL2rF8xpWxD3TPAsISWOrxezqGovqS38GRZOdpDfvQe3ts6F7nsng==}
     engines: {node: '>=16'}
     hasBin: true
+
+  tailwind-animations@1.0.2:
+    resolution: {integrity: sha512-CupN9WHBSKCd2ljmjKGyowVjDCUWDaIwCp4J+M1HlM1EfUHVOxnmWE0WE9g7vfLndWHMN8Sg+wa4RyZ3v3gd1w==}
+    peerDependencies:
+      tailwindcss: '4'
 
   tailwind-merge@3.6.0:
     resolution: {integrity: sha512-uxL7qAVQriqRQPAyK3pj66VqskWqoZ37PW94jwOTwNfq/z9oyu1V+eqrZqtR2+fCiXdYOZe/Modt8GtvqNzu+w==}
@@ -3438,6 +3446,10 @@ snapshots:
       csso: 5.0.5
       picocolors: 1.1.1
       sax: 1.6.1
+
+  tailwind-animations@1.0.2(tailwindcss@4.3.3):
+    dependencies:
+      tailwindcss: 4.3.3
 
   tailwind-merge@3.6.0: {}
 
