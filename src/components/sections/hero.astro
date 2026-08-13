@@ -17,9 +17,7 @@ import Mail from "../icons/mail.astro";
         <h1 class="text-[48px] md:text-[60px]">
           Custom Web Apps Engineered to Scale Your Business
         </h1>
-        <h2 class="text-base text-accent">
-          Julio Zavala — Full Stack Developer
-        </h2>
+        <h2 id="typewriter" class="text-base text-accent font-mono h-4"></h2>
         <p class="mt-8">
           I build high-performance web applications and internal tools that
           streamline business operations. Zero generic templates—just tailored,
@@ -28,14 +26,19 @@ import Mail from "../icons/mail.astro";
         <div
           class="flex flex-col md:flex-row items-left md:items-center gap-4 mt-4"
         >
-          <nav class="flex flex-col items-start sm:flex-row gap-4 sm:items-center">
+          <nav
+            class="flex flex-col items-start sm:flex-row gap-4 sm:items-center"
+          >
             <a
               class="bg-primary text-background hover:bg-primary/80 rounded-md px-3 py-1 transition-colors duration-200 cursor-pointer"
               href="mailto:juliozavala@julio-zavala.me"
               target="_blank"
               rel="noopener noreferrer">Let's Talk About Your Project</a
             >
-            <a href="#projects" class="bg-background text-secondary border border-secondary hover:bg-secondary/80 rounded-md px-3 py-1 transition-colors duration-200">
+            <a
+              href="#projects"
+              class="bg-background text-secondary border border-secondary hover:bg-secondary/80 rounded-md px-3 py-1 transition-colors duration-200"
+            >
               See my work
             </a>
             <a
@@ -60,3 +63,41 @@ import Mail from "../icons/mail.astro";
     </div>
   </Container>
 </section>
+
+<script>
+  const words = [
+    "Julio Zavala — Full Stack Developer",
+    "UI/UX Designer",
+    "Web developer",
+  ];
+  let i = 0;
+  let j = 0;
+  let currentWord = "";
+  let isDeleting = false;
+
+  function type() {
+    currentWord = words[i];
+    if (isDeleting) {
+      document.getElementById("typewriter")!.textContent =
+        currentWord.substring(0, j - 1);
+      j--;
+      if (j == 0) {
+        isDeleting = false;
+        i++;
+        if (i == words.length) {
+          i = 0;
+        }
+      }
+    } else {
+      document.getElementById("typewriter")!.textContent =
+        currentWord.substring(0, j + 1);
+      j++;
+      if (j == currentWord.length) {
+        isDeleting = true;
+      }
+    }
+    setTimeout(type, 100);
+  }
+
+  type();
+</script>
