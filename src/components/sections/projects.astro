@@ -4,13 +4,20 @@ import Container from "../layout/container.astro";
 import Project from "@/components/ui/project.astro";
 import ExternalLink from "@/components/icons/external-link.astro";
 import Github from "@/components/icons/github.astro";
+import { Image } from "astro:assets";
 ---
 
 <Section id="projects">
   <Container className="space-y-10">
     <h2>Projects</h2>
     <Project>
-      <img slot="image" src="/img/manita-de-gato.webp" alt="Manita de Gato" />
+      <Image
+        slot="image"
+        width={600}
+        height={400}
+        src="/img/manita-de-gato.webp"
+        alt="Manita de Gato"
+      />
 
       <header slot="header">
         <h3>Manita de Gato</h3>
@@ -61,8 +68,10 @@ import Github from "@/components/icons/github.astro";
       </main>
     </Project>
     <Project>
-      <img
+      <Image
         slot="image"
+        width={600}
+        height={400}
         src="/img/galeria-chema.webp"
         alt="Jose María's Gallery"
       />
@@ -89,7 +98,10 @@ import Github from "@/components/icons/github.astro";
           </span>
         </diva>
         <p class="text-sm text-muted">
-          A high-performance digital commerce platform built for high-resolution visual inventory. Optimized for lightning-fast asset loading, secure online transaction routing, and clean content management so non-technical owners can easily update stock.
+          A high-performance digital commerce platform built for high-resolution
+          visual inventory. Optimized for lightning-fast asset loading, secure
+          online transaction routing, and clean content management so
+          non-technical owners can easily update stock.
         </p>
         <nav class="flex items-center gap-4">
           <a

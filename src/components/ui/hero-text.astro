@@ -1,9 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import Github from "../icons/github.astro";
 ---
 
 <div class="flex flex-1 flex-col">
-  <img
+  <Image
+    width={128}
+    height={128}
+    loading="eager"
     src="/img/me.webp"
     class="rounded-full object-cover size-32 md:hidden mb-4"
     alt="Julio Zavala"

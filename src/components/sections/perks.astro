@@ -3,8 +3,9 @@ import Section from "../layout/section.astro";
 import Container from "../layout/container.astro";
 import PerkItem from "../ui/perk-item.astro";
 import Card from "../ui/card.astro";
-import { perks } from "@/lib/constants"
+import { perks } from "@/lib/constants";
 import Key from "@/components/icons/key.astro";
+import { Image } from "astro:assets";
 ---
 
 <Section id="perks">
@@ -15,27 +16,29 @@ import Key from "@/components/icons/key.astro";
 
     <div class="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-9">
       <Card className="row-span-2 md:row-span-1 md:col-span-2">
-        <div slot="content" class="flex flex-col  sm:flex-row gap-4 size-full">
+        <div slot="content" class="flex flex-col sm:flex-row gap-4 size-full">
           <div class="sm:max-w-xs">
             <header class="font-bold">
-            <Key
-              class="size-10 p-1.5 rounded-md border border-primary stroke-primary mb-4"
-            />
-            You Own 100% of the Product
-          </header>
-          <main>
-            <p class="text-sm text-muted-foreground">
-              Zero vendor lock-in. The code deploys to your Vercel, Neon, or
-              Supabase accounts. You control the hosting, the data, and the
-              future.
-            </p>
-          </main>
+              <Key
+                class="size-10 p-1.5 rounded-md border border-primary stroke-primary mb-4"
+              />
+              You Own 100% of the Product
+            </header>
+            <main>
+              <p class="text-sm text-muted-foreground">
+                Zero vendor lock-in. The code deploys to your Vercel, Neon, or
+                Supabase accounts. You control the hosting, the data, and the
+                future.
+              </p>
+            </main>
           </div>
           <div class="flex-1">
-            <img
-                src="/img/ownership.webp"
-                alt="Ownership"
-                class="rounded-md object-cover size-full"
+            <Image
+              width={400}
+              height={400}
+              src="/img/ownership.webp"
+              alt="Ownership"
+              class="rounded-md object-cover size-full"
             />
           </div>
         </div>
