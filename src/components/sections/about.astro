@@ -9,7 +9,12 @@ import { Image } from "astro:assets";
     className="space-y-4 flex flex-col-reverse md:flex-row gap-8 items-center font-mono"
   >
     <div class="space-y-4">
-      <h2 class="text-background text-3xl font-bold mb-6 font-mono">About</h2>
+      <h2
+        aria-label="About me"
+        id="about-title"
+        class="text-background text-3xl font-bold mb-6 font-mono h-16"
+      >
+      </h2>
 
       <p class="text-background leading-relaxed">
         Hi, I'm <strong
@@ -51,3 +56,41 @@ import { Image } from "astro:assets";
     </div>
   </Container>
 </Section>
+
+<script>
+  import { initTypewriter } from "@/scripts/typewritter.ts";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const { start, cleanup } = initTypewriter({
+      elementId: "about-title",
+      word: "About me",
+      observe: true,
+      speed: 150
+    });
+
+    const section = document.querySelector("#about-title");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            start();
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -100px 0px",
+      },
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+      cleanup();
+    };
+  });
+</script>
