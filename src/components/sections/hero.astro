@@ -8,14 +8,21 @@ import HeroText from "../ui/hero-text.astro";
   <Container className="flex justify-center items-center">
     <div class="flex flex-col flex-1 md:flex-row">
       <HeroText />
-      <div class="flex justify-start">
-        <Image
-          width={300}
-          height={300}
-          src="/img/me.webp"
-          class="rounded-full object-cover size-64 hidden md:block"
-          alt="Julio Zavala"
-        />
+      <div class="flex justify-start items-start">
+        <div class="relative group">
+          <Image
+            width={300}
+            height={300}
+            src="/img/me.webp"
+            class="relative z-10 rounded-full object-cover size-64 hidden md:block ring-4 ring-white/10"
+            alt="Julio Zavala"
+          />
+          <div
+            class="absolute inset-0 -z-10 rounded-full bg-primary/30 blur-[60px] scale-115"
+            aria-hidden="true"
+          >
+          </div>
+        </div>
       </div>
     </div>
   </Container>
