@@ -9,13 +9,13 @@ import { Image } from "astro:assets";
 
 <Section id="projects">
   <Container
-    className="space-y-10 [&>article]:timeline-view [&>article]:animate-range-rapid [&>article]:odd:animate-slide-in-right [&>article]:even:animate-slide-in-left [&>article]:animate-slide-in-left"
+    className="space-y-10 [&>article]:timeline-view [&>article]:animate-range-moderate [&>article]:odd:animate-slide-in-right [&>article]:even:animate-slide-in-left [&>article]:animate-slide-in-left [&>article]:animate-slide-distance-[3rem]"
   >
     <h2>Projects</h2>
     <Project>
       <Image
         slot="image"
-        width={600}
+        width={500}
         height={400}
         src="/img/manita-de-gato.webp"
         alt="Manita de Gato"
@@ -72,7 +72,7 @@ import { Image } from "astro:assets";
     <Project>
       <Image
         slot="image"
-        width={600}
+        width={500}
         height={400}
         src="/img/galeria-chema.webp"
         alt="Jose María's Gallery"
