@@ -1,7 +1,7 @@
 ---
 import "@/styles/global.css";
-import '@fontsource/geist-sans';
-import '@fontsource/geist-mono';
+import "@fontsource/geist-sans";
+import "@fontsource/geist-mono";
 interface Props {
   title: string;
   description?: string;
@@ -20,9 +20,14 @@ import Header from "../sections/header.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="Julio Zavala, Full Stack Developer, Software Engineer, Web Development, Custom Software, Portfolio" />
+    <meta
+      name="keywords"
+      content="Julio Zavala, Full Stack Developer, Software Engineer, Web Development, Custom Software, Portfolio"
+    />
   </head>
-  <body>
+  <body
+    class="overflow-y-auto scrollbar-thin scrollbar-thumb-surface-raised scrollbar-track-surface"
+  >
     <Header />
     <slot />
   </body>

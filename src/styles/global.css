@@ -58,6 +58,10 @@
   /* 16px */
 }
 
+::-webkit-scrollbar-button {
+    display: none;
+}
+
 @layer base {
   body {
     @apply bg-background text-foreground text-base antialiased;
