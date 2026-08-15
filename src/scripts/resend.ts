@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { generateEmailTemplate } from "./generate-email-template";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -15,7 +16,7 @@ export async function sendContactEmail({
     from: "contactform <juliozavala@mail.julio-zavala.me>",
     to: ["juliozavala@julio-zavala.me"],
     subject: "New contact submission from your website!",
-    html: `<strong>From: ${name}</strong><br><strong>Email: ${email}</strong><br><strong>Message: ${message}</strong>`,
+    html: generateEmailTemplate({ name, email, message }),
   });
 
   if (error) {
