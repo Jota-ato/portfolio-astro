@@ -1,11 +1,14 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
+
+
 type Variants = "primary" | "secondary";
-interface Props {
+interface Props extends HTMLAttributes<'button'> {
   className?: string;
   variant?: Variants;
-}
+} 
 
-const { className, variant = "primary" } = Astro.props;
+const { className, variant = "primary", ...rest } = Astro.props;
 
 const classesMap: Record<Variants, string> = {
   primary: "bg-primary text-background hover:bg-primary/80",
@@ -16,6 +19,7 @@ const classesMap: Record<Variants, string> = {
 
 <button
   class={`${classesMap[variant]} rounded-md px-3 py-1 transition-colors duration-200 ${className}`}
+  {...rest}
 >
   <slot />
 </button>

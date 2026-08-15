@@ -1,0 +1,46 @@
+---
+import Card from "../ui/card.astro";
+import Button from "./button.astro";
+---
+
+<Card className="col-span-2">
+  <main slot="content">
+    <form>
+      <fieldset class="space-y-6">
+        <legend class="sr-only"> Contact form </legend>
+        <div class="flex flex-col gap-2 font-mono">
+          <label for="name"> Name </label>
+          <input
+            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1"
+            id="name"
+            name="name"
+            type="text"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-2 font-mono">
+          <label for="email"> Email </label>
+          <input
+            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1"
+            id="email"
+            name="email"
+            type="email"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-2 font-mono">
+          <label for="message"> Message </label>
+          <textarea
+            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1 resize-none"
+            id="message"
+            name="message"
+            required
+          />
+        </div>
+        <Button type="submit">
+            Send
+        </Button>
+      </fieldset>
+    </form>
+  </main>
+</Card>
