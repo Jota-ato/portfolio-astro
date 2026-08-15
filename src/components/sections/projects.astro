@@ -5,11 +5,12 @@ import Project from "@/components/ui/project.astro";
 import ExternalLink from "@/components/icons/external-link.astro";
 import Github from "@/components/icons/github.astro";
 import { Image } from "astro:assets";
+import Badge from "../ui/badge.astro";
 ---
 
 <Section id="projects">
   <Container
-    className="space-y-10 [&>article]:timeline-view [&>article]:animate-range-gradual [&>article]:animate-blink"
+    className="space-y-10 [&>article]:timeline-view [&>article]:animate-range-rapid [&>article]:animate-blink"
   >
     <h2>Projects</h2>
     <Project>
@@ -25,23 +26,23 @@ import { Image } from "astro:assets";
         <h3>Manita de Gato</h3>
       </header>
       <main slot="body" class="flex flex-col gap-4">
-        <diva class="flex gap-2">
-          <span
-            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+        <div class="flex gap-2">
+          <Badge
+            
           >
             Next.js
-          </span>
-          <span
-            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          </Badge>
+          <Badge
+            
           >
             Tailwind CSS
-          </span>
-          <span
-            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          </Badge>
+          <Badge
+            
           >
             Nenon
-          </span>
-        </diva>
+          </Badge>
+        </div>
         <p class="text-sm text-muted">
           A custom booking engine and dashboard that eliminates manual
           scheduling conflicts. It gives business owners complete control over
@@ -82,23 +83,23 @@ import { Image } from "astro:assets";
         <h3>Jose María's Gallery</h3>
       </header>
       <main slot="body" class="flex flex-col gap-4">
-        <diva class="flex gap-2">
-          <span
-            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+        <div class="flex gap-2">
+          <Badge
+            
           >
             Next.js
-          </span>
-          <span
-            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          </Badge>
+          <Badge
+            
           >
             Tailwind CSS
-          </span>
-          <span
-            class="rounded-md px-2 py-1 border border-primary text-primary text-xs"
+          </Badge>
+          <Badge
+            
           >
             Nenon
-          </span>
-        </diva>
+          </Badge>
+        </div>
         <p class="text-sm text-muted">
           A high-performance digital commerce platform built for high-resolution
           visual inventory. Optimized for lightning-fast asset loading, secure
