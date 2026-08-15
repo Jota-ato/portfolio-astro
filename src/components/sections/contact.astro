@@ -1,0 +1,48 @@
+---
+import Section from "@/components/layout/section.astro";
+import Container from "@/components/layout/container.astro";
+---
+
+<Section id="contact">
+    <Container>
+        <h2 id="contact-title"></h2>
+    </Container>
+</Section>
+
+<script>
+  import { initTypewriter } from "@/scripts/typewritter.ts";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const { start, cleanup } = initTypewriter({
+      elementId: "contact-title",
+      word: "Let's work together",
+      observe: true,
+      speed: 150
+    });
+
+    const section = document.querySelector("#contact-title");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            start();
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -100px 0px",
+      },
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+      cleanup();
+    };
+  });
+</script>
