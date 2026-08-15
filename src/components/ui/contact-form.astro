@@ -5,42 +5,130 @@ import Button from "./button.astro";
 
 <Card className="col-span-2">
   <main slot="content">
-    <form>
+    <form novalidate>
       <fieldset class="space-y-6">
         <legend class="sr-only"> Contact form </legend>
+
         <div class="flex flex-col gap-2 font-mono">
           <label for="name"> Name </label>
           <input
-            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1"
+            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1 ring-1 ring-transparent transition-colors"
             id="name"
             name="name"
             type="text"
-            required
+            aria-describedby="name-error"
           />
+          <p id="name-error" class="text-danger text-sm hidden"></p>
         </div>
+
         <div class="flex flex-col gap-2 font-mono">
           <label for="email"> Email </label>
           <input
-            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1"
+            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1 ring-1 ring-transparent transition-colors"
             id="email"
             name="email"
             type="email"
-            required
+            aria-describedby="email-error"
           />
+          <p id="email-error" class="text-danger text-sm hidden"></p>
         </div>
+
         <div class="flex flex-col gap-2 font-mono">
           <label for="message"> Message </label>
           <textarea
-            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1 resize-none"
+            class="bg-surface-raised rounded-md focus:outline-none px-2 py-1 resize-none ring-1 ring-transparent transition-colors"
             id="message"
             name="message"
-            required
-          />
+            aria-describedby="message-error"></textarea>
+          <p id="message-error" class="text-danger text-sm hidden"></p>
         </div>
-        <Button type="submit">
-            Send
-        </Button>
+
+        <Button id="submit-contact-button" type="submit"> Send </Button>
       </fieldset>
     </form>
   </main>
 </Card>
+
+<script>
+  document.addEventListener("DOMContentLoaded", main);
+
+  function main() {
+    const form = document.querySelector("form");
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const fields = [
+      {
+        input: form.querySelector("#name"),
+        error: form.querySelector("#name-error"),
+        validator: (v: string) => v.length > 0,
+        message: "El nombre es requerido.",
+      },
+      {
+        input: form.querySelector("#email"),
+        error: form.querySelector("#email-error"),
+        validator: (v: string) =>
+          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v),
+        message: "Ingresa un correo válido.",
+      },
+      {
+        input: form.querySelector("#message"),
+        error: form.querySelector("#message-error"),
+        validator: (v: string) => v.length > 0,
+        message: "El mensaje es requerido.",
+      },
+    ].filter(
+      (
+        f,
+      ): f is {
+        input: HTMLInputElement | HTMLTextAreaElement;
+        error: HTMLParagraphElement;
+        validator: (v: string) => boolean;
+        message: string;
+      } =>
+        (f.input instanceof HTMLInputElement ||
+          f.input instanceof HTMLTextAreaElement) &&
+        f.error instanceof HTMLParagraphElement,
+    );
+
+    if (fields.length !== 3) return;
+
+    const validateField = (field: (typeof fields)[number]) => {
+      const isValid = field.validator(field.input.value.trim());
+
+      field.input.classList.toggle("ring-danger", !isValid);
+      field.input.classList.toggle("ring-transparent", isValid);
+      field.input.setAttribute("aria-invalid", String(!isValid));
+
+      field.error.textContent = isValid ? "" : field.message;
+      field.error.classList.toggle("hidden", isValid);
+
+      return isValid;
+    };
+
+    fields.forEach((field) => {
+      field.input.addEventListener("blur", () => validateField(field));
+      field.input.addEventListener("input", () => {
+        // limpia el error en cuanto el usuario empieza a corregir,
+        // sin esperar a que salga del campo
+        if (field.input.classList.contains("ring-danger")) {
+          validateField(field);
+        }
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const allValid = fields.map(validateField).every(Boolean);
+
+      if (!allValid) {
+        console.log("Form has errors.");
+        return;
+      }
+
+      // aquí sí deberías enviar los datos, ej:
+      // const formData = new FormData(form);
+      // fetch("/api/contact", { method: "POST", body: formData });
+      console.log("Form submitted!");
+    });
+  }
+</script>
