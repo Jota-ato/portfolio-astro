@@ -1,0 +1,68 @@
+---
+import Section from "@/components/layout/section.astro";
+import Container from "@/components/layout/container.astro";
+import Card from "@/components/ui/card.astro";
+import Badge from "@/components/ui/badge.astro";
+---
+
+<Section id="skills" class="bg-background py-16">
+  <Container className="space-y-10">
+    <div class="space-y-3 max-w-2xl">
+      <h2>Engineering & Capabilities</h2>
+      <p class="text-muted leading-relaxed">
+        Modern full-stack technologies deployed to build fast, scalable, and
+        fully owned digital infrastructure for your business.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card>
+        <header slot="header" class="flex-1">
+          <h3>Frontend & Interfaces</h3>
+          <p class="text-muted text-sm leading-relaxed mt-2">
+            Lightning-fast user interfaces optimized for mobile booking
+            conversion and zero client drop-off.
+          </p>
+        </header>
+        <main slot="content" class="flex flex-wrap gap-2 pt-2">
+          <Badge>React</Badge>
+          <Badge>Next.js</Badge>
+          <Badge>Astro</Badge>
+          <Badge>Tailwind CSS</Badge>
+          <Badge>Figma</Badge>
+        </main>
+      </Card>
+
+      <Card>
+        <header slot="header" class="flex-1">
+          <h3>Backend & Architecture</h3>
+          <p class="text-muted text-sm leading-relaxed mt-2">
+            Reliable server logic, automated workflows, and data pipelines built
+            for high uptime and rapid execution.
+          </p>
+        </header>
+        <main slot="content" class="flex flex-wrap gap-2 pt-2">
+          <Badge>Node.js</Badge>
+          <Badge>TypeScript</Badge>
+          <Badge>REST APIs</Badge>
+        </main>
+      </Card>
+
+      <Card>
+        <header slot="header" class="flex-1">
+          <h3>Data & Integrations</h3>
+          <p class="text-muted text-sm leading-relaxed mt-2">
+            Secure databases and custom third-party integrations that replace
+            expensive SaaS platform fees.
+          </p>
+        </header>
+        <main slot="content" class="flex flex-wrap gap-2 pt-2">
+          <Badge>PostgreSQL</Badge>
+          <Badge>Stripe Payments</Badge>
+          <Badge>Auth & Security</Badge>
+          <Badge>Automations</Badge>
+        </main>
+      </Card>
+    </div>
+  </Container>
+</Section>
