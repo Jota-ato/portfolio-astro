@@ -107,7 +107,7 @@ export function initTypewriter(options: TypewriterOptions): TypewriterControls {
     }
 
     timeoutId = setTimeout(type, speed);
-  }
+  };
 
   const start: () => void = () => {
     if (hasStarted || isComplete) return;
