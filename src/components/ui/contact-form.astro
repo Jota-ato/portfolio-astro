@@ -50,6 +50,8 @@ import Button from "./button.astro";
 </Card>
 
 <script>
+  import { sendContactEmail } from "@/scripts/resend";
+
   document.addEventListener("DOMContentLoaded", main);
 
   function main() {
@@ -108,15 +110,13 @@ import Button from "./button.astro";
     fields.forEach((field) => {
       field.input.addEventListener("blur", () => validateField(field));
       field.input.addEventListener("input", () => {
-        // limpia el error en cuanto el usuario empieza a corregir,
-        // sin esperar a que salga del campo
         if (field.input.classList.contains("ring-danger")) {
           validateField(field);
         }
       });
     });
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const allValid = fields.map(validateField).every(Boolean);
 
@@ -125,10 +125,35 @@ import Button from "./button.astro";
         return;
       }
 
-      // aquí sí deberías enviar los datos, ej:
-      // const formData = new FormData(form);
-      // fetch("/api/contact", { method: "POST", body: formData });
-      console.log("Form submitted!");
+      const submitButton = document.querySelector("#submit-contact-button");
+      if (!(submitButton instanceof HTMLButtonElement)) return;
+
+      const originalText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+
+        form.reset();
+        submitButton.textContent = "Sent!";
+      } catch (err) {
+        console.error(err);
+        submitButton.textContent = "Error, try again";
+      } finally {
+        submitButton.disabled = false;
+        setTimeout(() => {
+          submitButton.textContent = originalText;
+        }, 2000);
+      }
     });
   }
 </script>
