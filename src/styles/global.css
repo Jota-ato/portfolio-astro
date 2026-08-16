@@ -59,7 +59,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth
+    @apply scroll-smooth scrollbar-thumb-surface-raised 
   }
   body {
     @apply bg-background text-foreground text-base antialiased;
