@@ -50,7 +50,6 @@ import Button from "./button.astro";
 </Card>
 
 <script>
-  import { sendContactEmail } from "@/scripts/resend";
 
   document.addEventListener("DOMContentLoaded", main);
 
@@ -63,20 +62,20 @@ import Button from "./button.astro";
         input: form.querySelector("#name"),
         error: form.querySelector("#name-error"),
         validator: (v: string) => v.length > 0,
-        message: "El nombre es requerido.",
+        message: "Name is required.",
       },
       {
         input: form.querySelector("#email"),
         error: form.querySelector("#email-error"),
         validator: (v: string) =>
           /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v),
-        message: "Ingresa un correo válido.",
+        message: "Use a valid email address.",
       },
       {
         input: form.querySelector("#message"),
         error: form.querySelector("#message-error"),
         validator: (v: string) => v.length > 0,
-        message: "El mensaje es requerido.",
+        message: "Message is required.",
       },
     ].filter(
       (
