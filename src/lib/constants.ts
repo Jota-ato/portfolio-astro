@@ -14,7 +14,7 @@ export const NAV_ELEMENTS: NavElement[] = [
     href: "#projects",
   },
   {
-    name: "About me",
+    name: "About",
     href: "#me",
   },
   {
