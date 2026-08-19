@@ -59,7 +59,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth scrollbar-thumb-surface-raised scrollbar-thin 
+    @apply scroll-smooth scrollbar-thumb-surface-raised scrollbar-thin;
   }
   body {
     @apply bg-background text-foreground text-base antialiased;
@@ -84,11 +84,11 @@
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-xl sm:text-2xl;
   }
 
   h3 {
-    @apply text-xl;
+    @apply text-lg sm:text-xl;
   }
 
   p,
